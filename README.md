@@ -25,8 +25,8 @@ Get your first AI agent running quickly. No prior experience needed.
 ### ⚡ Fast Track (5 commands)
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/holistic-ai/hackthon-2025.git && cd hackthon-2025
+# 1. Clone repository (with example submodules)
+git clone --recursive https://github.com/holistic-ai/hackthon-2025.git && cd hackthon-2025
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -40,6 +40,8 @@ jupyter notebook
 
 # 5. Open tutorials/01_basic_agent.ipynb and run it!
 ```
+
+> 💡 **Tip**: Use `git clone --recursive` to automatically clone all example repositories
 
 **Done!** Your first agent should be running. ✅
 
