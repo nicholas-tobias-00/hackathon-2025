@@ -1,0 +1,19 @@
+[submodule "track_a_iron_man/examples/deep_research"]
+	path = track_a_iron_man/examples/deep_research
+	url = https://github.com/langchain-ai/open_deep_research.git
+
+[submodule "track_a_iron_man/examples/react_agent"]
+	path = track_a_iron_man/examples/react_agent
+	url = https://github.com/langchain-ai/react-agent.git
+
+[submodule "track_b_glass_box/examples/failure_attribution"]
+	path = track_b_glass_box/examples/failure_attribution
+	url = https://github.com/mingyin1/Agents_Failure_Attribution.git
+
+[submodule "track_c_dear_grandma/examples/agentharm"]
+	path = track_c_dear_grandma/examples/agentharm
+	url = https://github.com/UKGovernmentBEIS/inspect_evals.git
+
+[submodule "track_c_dear_grandma/examples/harmbench"]
+	path = track_c_dear_grandma/examples/harmbench
+	url = https://github.com/centerforaisafety/HarmBench.git
