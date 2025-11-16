@@ -1,0 +1,22 @@
+{
+  "id": "606d3f27-c334-40b4-911c-94e87243ffef",
+  "name": "router.final_response",
+  "user_query": "Who's Mark Twain",
+  "model_id": "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+  "model_family": "small_fast",
+  "reason": "The user's request is a simple factual question about a historical figure, Mark Twain, which does not require complex reasoning, coding, or data analysis. A 'small_fast' model can handle such a straightforward query efficiently.",
+  "signals_used": [
+    "factual_question"
+  ],
+  "confidence": 0.9,
+  "response": "Mark Twain, whose real name was Samuel Langhorne Clemens (1835-1910), was a famous American writer, humorist, and social critic. He is widely considered one of the most important American authors and is often called the \"father of American literature.\"\n\nSome key points about Mark Twain:\n\n1. Famous works:\n- \"The Adventures of Tom Sawyer\" (1876)\n- \"Adventures of Huckleberry Finn\" (1884)\n- \"The Prince and the Pauper\" (1881)\n\n2. Writing style:\n- Known for his wit, humor, and satirical writing\n- Used vernacular language and dialects in his work\n- Often critiqued social issues of his time, including racism and imperialism\n\n3. Personal life:\n- Born in Florida, Missouri\n- Worked as a riverboat pilot on the Mississippi River (which inspired his pen name \"Mark Twain,\" a riverboat term)\n- Traveled extensively and wrote about his experiences\n- Experienced significant personal tragedies, including the loss of his wife and children\n\n4. Legacy:\n- Influential in developing a distinctly American literary voice\n- Considered one of the greatest American writers of the 19th century\n- His works continue to be widely read and studied today",
+  "metadata": {
+    "session_id": "demo-123",
+    "user_query": "Who's Mark Twain"
+  },
+  "token_usage": {
+    "input_tokens": 11,
+    "output_tokens": 262,
+    "total_tokens": 273
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "04fa370b-21a7-4afb-8367-dd18cddbbff4",
+  "name": "router.select_model",
+  "run_type": "chain",
+  "inputs": {
+    "user_query": "How would you define \"Bobsicle\""
+  },
+  "outputs": {
+    "task_type": "other",
+    "model_family": "small_fast",
+    "model_id": "us.anthropic.claude-3-5-haiku-20241022-v1:0"
+  },
+  "extra": {
+    "signals_used": [
+      "simple_query"
+    ],
+    "reason": "The user's request does not seem to match any of the predefined task types and is likely a simple, casual query.",
+    "confidence": 0.9
+  },
+  "metadata": {
+    "session_id": "demo-notebook",
+    "user_query": "How would you define \"Bobsicle\""
+  },
+  "tags": [
+    "task-router",
+    "small_fast"
+  ],
+  "start_time": "2025-11-16T07:12:12.006900+00:00",
+  "end_time": "2025-11-16T07:12:12.006935+00:00",
+  "token_usage": {
+    "input_tokens": 270,
+    "output_tokens": 0,
+    "total_tokens": 270
+  }
+}
