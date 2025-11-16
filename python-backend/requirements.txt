@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+python-dotenv
+boto3          # if Bedrock
+anthropic      # if needed
+openai         # if needed
