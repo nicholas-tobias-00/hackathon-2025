@@ -69,6 +69,14 @@ export default function ChatInterface() {
     },
   ];
 
+  // Dummy per-response metrics (increment each time the AI responds)
+  const METRIC_INCREMENT = {
+    co2_grams: 0.0025, // grams CO₂ per response
+    energy_kwh: 0.000015, // kWh consumed
+    tokens: 45, // assume average tokens per completion
+    cost: 0.00012, // $ cost per response
+  };
+
   // Background color transition
   // const backgroundColors = [
   //   "from-sky-50 to-blue-100", // Blue
@@ -150,14 +158,13 @@ export default function ChatInterface() {
       setTemperature((prev) => Math.max(prev - 20, 0));
 
       // update UI metrics from backend
-      if (data.metrics) {
-        setModelMetrics({
-          co2_grams: data.metrics.co2_grams || 0,
-          energy_kwh: data.metrics.energy_kwh || 0,
-          tokens: data.metrics.tokens || 0,
-          cost: data.metrics.cost || 0,
-        });
-      }
+      // Accumulate metrics (dummy values per response)
+      setModelMetrics((prev) => ({
+        co2_grams: prev.co2_grams + METRIC_INCREMENT.co2_grams,
+        energy_kwh: prev.energy_kwh + METRIC_INCREMENT.energy_kwh,
+        tokens: prev.tokens + METRIC_INCREMENT.tokens,
+        cost: prev.cost + METRIC_INCREMENT.cost,
+      }));
 
       // show assistant response
       const assistantMessage = {
