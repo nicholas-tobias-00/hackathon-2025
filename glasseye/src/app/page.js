@@ -33,6 +33,12 @@ export default function ChatInterface() {
   const [rightSidebarLoading, setRightSidebarLoading] = useState(false);
   const [selectedMessageId, setSelectedMessageId] = useState(null);
   const messagesEndRef = useRef(null);
+  const [modelMetrics, setModelMetrics] = useState({
+    co2_grams: 0,
+    energy_kwh: 0,
+    tokens: 0,
+    cost: 0,
+  });
 
   // Previous chats placeholder data
   const previousChats = [
@@ -45,10 +51,22 @@ export default function ChatInterface() {
 
   // LangSmith metrics placeholder data
   const metrics = [
-    { label: "Carbon Emissions: ", value: "28.03 mg", icon: CloudAlert },
-    { label: "Reduced Carbon Emissions: ", value: "2.34 mg", icon: Earth },
-    { label: "Time: ", value: "5.23s", icon: Clock },
-    { label: "Cost: ", value: "$0.00000259", icon: CircleDollarSign },
+    {
+      label: "Carbon Emissions (gCO₂):",
+      value: modelMetrics.co2_grams.toFixed(6),
+      icon: CloudAlert,
+    },
+    {
+      label: "Energy Consumption (kWh):",
+      value: modelMetrics.energy_kwh.toExponential(4),
+      icon: Zap,
+    },
+    { label: "Total Tokens:", value: modelMetrics.tokens, icon: Earth },
+    {
+      label: "Cost ($):",
+      value: modelMetrics.cost.toFixed(6),
+      icon: CircleDollarSign,
+    },
   ];
 
   // Background color transition
@@ -115,8 +133,33 @@ export default function ChatInterface() {
         body: JSON.stringify({ message: messageToSend }),
       });
 
+      // const data = await response.json();
+      // setTemperature((prev) => Math.max(prev - 20, 0));
+
+      // const assistantMessage = {
+      //   id: messages.length + 2,
+      //   role: "assistant",
+      //   content: data.response,
+      // };
+
+      // setMessages((prev) => [...prev, assistantMessage]);
+
       const data = await response.json();
 
+      // 🌡️ temperature effect
+      setTemperature((prev) => Math.max(prev - 20, 0));
+
+      // update UI metrics from backend
+      if (data.metrics) {
+        setModelMetrics({
+          co2_grams: data.metrics.co2_grams || 0,
+          energy_kwh: data.metrics.energy_kwh || 0,
+          tokens: data.metrics.tokens || 0,
+          cost: data.metrics.cost || 0,
+        });
+      }
+
+      // show assistant response
       const assistantMessage = {
         id: messages.length + 2,
         role: "assistant",
@@ -267,7 +310,7 @@ export default function ChatInterface() {
 
         <div className="flex-1 flex overflow-hidden">
           {/* Messages Container with Glassmorphism Chatbox */}
-          <div className="flex-1 flex items-center justify-center px-4 py-8 overflow-hidden">
+          <div className="flex-1 flex items-center justify-center px-4 py-8">
             <div
               className={`w-full ${
                 rightSidebarOpen ? "max-w-3xl" : "max-w-4xl"
@@ -281,7 +324,7 @@ export default function ChatInterface() {
                 <div className="absolute bottom-0 right-1/4 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl"></div>
 
                 {/* Messages with Internal ScrollArea */}
-                <ScrollArea className="flex-1 p-6">
+                <ScrollArea className="flex-1 p-6 h-full">
                   <div className="relative z-10 space-y-6">
                     {messages.map((message) => (
                       <div key={message.id}>

@@ -72,3 +72,5 @@ templates/poster_templates/venv/
 ~$*.xlsx
 *.pptx~
 *.docx~
+
+python-backend/model/*
