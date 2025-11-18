@@ -297,15 +297,27 @@ def route_tasks(query: str) -> str:
 
         if label == "simple_chitchat":
             result = run_small_llm(task_query)
+            print("*******************************************************************")
+            print("We are in simple chitchat")
+            print("*******************************************************************")
 
-        # elif label == "google_search":
-        #     result = run_google_search(task_query)
+        elif label == "google_search":
+            result = run_small_llm(task_query)
+            print("*******************************************************************")
+            print("We are in google search")
+            print("*******************************************************************")
 
         elif label == "run_calculation_tool":
             result = run_math_agent(task_query)
+            print("*******************************************************************")
+            print("We are in calculation tool")
+            print("*******************************************************************")
 
         elif label == "run_large_model_agent":
             result = run_large_llm(task_query)
+            print("*******************************************************************")
+            print("We are in large model agent")
+            print("*******************************************************************")
 
         else:
             result = f"Unknown task: {label}"

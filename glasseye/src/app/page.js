@@ -16,6 +16,7 @@ import {
   CloudAlert,
   CircleDollarSign,
   Earth,
+  Leaf,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -308,9 +309,9 @@ export default function ChatInterface() {
             <Menu className="h-4 w-4" />
           </Button>
           <div className="flex items-center gap-2">
-            <h1 className="text-lg font-semibold text-gray-900">GlassEye</h1>
+            <h1 className="text-lg font-semibold text-gray-900">GreenRoute</h1>
             <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-md">
-              <Eye className="h-4 w-4 text-white" />
+              <Leaf className="h-4 w-4 text-white" />
             </div>
           </div>
         </div>
